@@ -4265,6 +4265,11 @@ jest@^24.8.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
+jetifier@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.4.tgz#6159db8e275d97980d26162897a0648b6d4a3222"
+  integrity sha512-+f/4OLeqY8RAmXnonI1ffeY1DR8kMNJPhv5WMFehchf7U71cjMQVKkOz1n6asz6kfVoAqKNWJz1A/18i18AcXA==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -5979,6 +5984,13 @@ react-native-async-storage@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/react-native-async-storage/-/react-native-async-storage-0.0.1.tgz#5f2ef5ff30eae64b4248e265b534e72ea41cdc69"
   integrity sha1-Xy71/zDq5ktCSOJltTTnLqQc3Gk=
+
+react-native-camera@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-3.1.1.tgz#3af3d1eeeed0a5ad2b667eb9aaf3c0058c029c38"
+  integrity sha512-Tg1ffUpKlWmafoBm5afGCPFfFKE/lKKiM+gZDlYT38H2IBwbjryWL5BEEbaVi8abZsvQkru5eZAnwUZXUd4vDw==
+  dependencies:
+    prop-types "^15.6.2"
 
 react-native-config@^0.11.7:
   version "0.11.7"

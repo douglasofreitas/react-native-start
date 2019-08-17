@@ -1,8 +1,9 @@
 package com.douglasfreitas.reactnativestart;
 
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 
 import com.facebook.react.ReactApplication;
+import org.reactnative.camera.RNCameraPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import io.invertase.firebase.RNFirebasePackage;
@@ -11,22 +12,13 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-import io.invertase.firebase.RNFirebasePackage;
 // optional packages - add/remove as appropriate
-import io.invertase.firebase.admob.RNFirebaseAdMobPackage;
 import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
-import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import io.invertase.firebase.config.RNFirebaseRemoteConfigPackage;
-import io.invertase.firebase.database.RNFirebaseDatabasePackage;
-import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
-import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
-import io.invertase.firebase.functions.RNFirebaseFunctionsPackage;
 import io.invertase.firebase.instanceid.RNFirebaseInstanceIdPackage;
 import io.invertase.firebase.links.RNFirebaseLinksPackage;
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
-import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 import io.invertase.firebase.perf.RNFirebasePerformancePackage;
-import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +35,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new RNCameraPackage(),
         new ReactNativeConfigPackage(),
         new RNGestureHandlerPackage(),
         new RNFirebasePackage(),
