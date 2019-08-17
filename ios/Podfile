@@ -1,0 +1,85 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'ReactNativeStart' do
+  # Pods for ReactNativeStart
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Required by RNFirebase
+  pod 'Firebase/Core', '~> 6.3.0'
+
+  # [OPTIONAL PODS] - comment out pods for firebase products you won't be using.
+  #pod 'Firebase/AdMob', '~> 6.3.0'
+  #pod 'Firebase/Auth', '~> 6.3.0'
+  #pod 'Firebase/Database', '~> 6.3.0'
+  #pod 'Firebase/Functions', '~> 6.3.0'
+  #pod 'Firebase/DynamicLinks', '~> 6.3.0'
+  #pod 'Firebase/Firestore', '~> 6.3.0'
+  pod 'Firebase/Messaging', '~> 6.3.0'
+  pod 'Firebase/RemoteConfig', '~> 6.3.0'
+  pod 'Firebase/Analytics', '~> 6.3.0'
+  #pod 'Firebase/Storage', '~> 6.3.0'
+  #pod 'Firebase/Performance', '~> 6.3.0'
+  #pod 'Fabric', '~> 1.10.2'
+  #pod 'Crashlytics', '~> 3.13.2'
+
+  
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+  
+  rn_path = '../node_modules/react-native'
+  
+  pod 'React', path: rn_path, subspecs: [
+      'Core',
+      'CxxBridge',
+      'DevSupport',
+      'RCTActionSheet',
+      'RCTAnimation',
+      'RCTGeolocation',
+      'RCTImage',
+      'RCTLinkingIOS',
+      'RCTNetwork',
+      'RCTSettings',
+      'RCTText',
+      'RCTVibration',
+      'RCTWebSocket',
+  ]
+  pod 'yoga', :path => "#{rn_path}/ReactCommon/yoga"
+  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+  
+  post_install do |installer|
+      installer.pods_project.targets.each do |target|
+          if target.name == "React"
+              target.remove_from_project
+          end
+          
+          if target.name == 'react-native-config'
+              phase = target.project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
+              phase.shell_script = "cd ../../"\
+              " && RNC_ROOT=./node_modules/react-native-config/"\
+              " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
+              " && export BUILD_DIR=$RNC_ROOT/ios/ReactNativeConfig"\
+              " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"
+              
+              target.build_phases << phase
+              target.build_phases.move(phase,0)
+          end
+      end
+  end
+  
+
+end
+
+target 'ReactNativeStart-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for ReactNativeStart-tvOS
+
+  target 'ReactNativeStart-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
