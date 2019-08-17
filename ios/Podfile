@@ -48,6 +48,8 @@ target 'ReactNativeStart' do
   pod 'yoga', :path => "#{rn_path}/ReactCommon/yoga"
   pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
   
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
   post_install do |installer|
       installer.pods_project.targets.each do |target|
           if target.name == "React"
