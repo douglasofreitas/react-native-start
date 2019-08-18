@@ -11,7 +11,10 @@
     "rename": "node ./bin/rename.js",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "reload":"adb shell input keyevent 82 && adb shell input keyevent 66 && adb shell input keyevent 66",
+    "devmenu":"adb shell input keyevent 82",
+    "debug":"adb shell input keyevent 82 && adb shell input keyevent 61 && adb shell input keyevent 66 && adb shell input keyevent 66"
   },
   "dependencies": {
     "axios": "^0.19.0",

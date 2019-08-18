@@ -7,16 +7,20 @@ import {
 
 import LoginScreen from './screens/LoginScreen'
 import HomeScreen from './screens/HomeScreen'
+import ProfileScreen from './screens/ProfileScreen'
+import HealthScreen from './screens/HealthScreen'
 
 const drawerNavigator = createDrawerNavigator({
-  Home: HomeScreen
+  Home: HomeScreen,
+  Profile: ProfileScreen
 });
 
 const switchNavigator = createSwitchNavigator({
   Login: LoginScreen,
-  generalFlow: drawerNavigator
+  generalFlow: drawerNavigator,
+  Health: HealthScreen
 }, {
-  initialRouteName: 'Login',
+  initialRouteName: 'generalFlow',
 });
 
 const App = createAppContainer(switchNavigator);
