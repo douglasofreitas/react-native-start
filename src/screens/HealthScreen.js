@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import firebase from 'react-native-firebase';
 
@@ -7,9 +7,11 @@ import Config from '../config';
 import Camera from '../components/Camera';
 
 const HealthScreen = () => {
-  //setCurrentScreen 
-  firebase.analytics().setCurrentScreen('HEALTH');
-  firebase.analytics().setUserId('douglas');
+  //FIREBASE ANALYTICS - samples  
+  //firebase.analytics().setCurrentScreen('HEALTH');
+  //firebase.analytics().setUserId('douglas');
+
+  const [camera, setCamera] = useState(false); 
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
@@ -34,9 +36,15 @@ const HealthScreen = () => {
           {firebase.storage.nativeModuleExists && <Text style={styles.module}>storage()</Text>}
         </View>
 
+        <Text>CAMERA</Text>
+
         <View style={{width: 200, height: 100}}>
-          <Camera />
+          { camera ? <Camera /> : null }
+          <TouchableOpacity onPress={() => setCamera(true)} style={{border: 1}}>
+            <Text style={{ fontSize: 14 }}> Open camera </Text>
+          </TouchableOpacity>
         </View>
+
       </ScrollView>
     </SafeAreaView>
   );

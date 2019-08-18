@@ -20,7 +20,7 @@ const switchNavigator = createSwitchNavigator({
   generalFlow: drawerNavigator,
   Health: HealthScreen
 }, {
-  initialRouteName: 'generalFlow',
+  initialRouteName: 'Health',
 });
 
 const App = createAppContainer(switchNavigator);
