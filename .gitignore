@@ -22,7 +22,7 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 ios/Pods/*
-*/**/GoogleService-Info.plist
+#*/**/GoogleService-Info.plist
 
 # Android/IntelliJ
 #
@@ -31,7 +31,7 @@ build/
 .gradle
 local.properties
 *.iml
-*/**/google-services.json
+#*/**/google-services.json
 
 # node.js
 #
