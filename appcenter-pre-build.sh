@@ -12,7 +12,7 @@ GOOGLE_CONFIG_ANDROID_FILE=$APPCENTER_SOURCE_DIRECTORY/android/app/google-servic
 if [ -e "$GOOGLE_CONFIG_ANDROID_FILE" ]
 then
     echo "Updating Google Json"
-    echo "$GOOGLE_CONFIG_ANDROID" > $GOOGLE_CONFIG_ANDROID_FILE
+    echo $GOOGLE_CONFIG_ANDROID | base64 --decode > $GOOGLE_CONFIG_ANDROID_FILE
     sed -i -e 's/\\"/'\"'/g' $GOOGLE_CONFIG_ANDROID_FILE
 
     echo "File content:"
@@ -24,7 +24,7 @@ GOOGLE_CONFIG_IOS_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/GoogleService-Info.plist
 if [ -e "$GOOGLE_CONFIG_IOS_FILE" ]
 then
     echo "Updating Google Json"
-    echo "$GOOGLE_CONFIG_IOS" > $GOOGLE_CONFIG_IOS_FILE
+    echo $GOOGLE_CONFIG_IOS | base64 --decode > $GOOGLE_CONFIG_IOS_FILE
     sed -i -e 's/\\"/'\"'/g' $GOOGLE_CONFIG_IOS_FILE
 
     echo "File content:"
