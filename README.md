@@ -32,6 +32,7 @@ The ".env.sample" file is a sample of .env generate by APP Center and is used to
 ```
 yarn install
 react-native link
+npx jetify
 cd ios && pod install
 
 #run

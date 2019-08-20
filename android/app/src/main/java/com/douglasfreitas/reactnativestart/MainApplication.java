@@ -17,9 +17,9 @@ import com.facebook.soloader.SoLoader;
 import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
 import io.invertase.firebase.config.RNFirebaseRemoteConfigPackage;
 import io.invertase.firebase.instanceid.RNFirebaseInstanceIdPackage;
-import io.invertase.firebase.links.RNFirebaseLinksPackage;
+//import io.invertase.firebase.links.RNFirebaseLinksPackage;
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
-import io.invertase.firebase.perf.RNFirebasePerformancePackage;
+//import io.invertase.firebase.perf.RNFirebasePerformancePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,10 +51,10 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
         //new RNFirebaseFirestorePackage(),
         //new RNFirebaseFunctionsPackage(),
         new RNFirebaseInstanceIdPackage(),
-        new RNFirebaseLinksPackage(),
-        new RNFirebaseMessagingPackage(),
+        //new RNFirebaseLinksPackage(),
+        new RNFirebaseMessagingPackage()
         //new RNFirebaseNotificationsPackage(),
-        new RNFirebasePerformancePackage()
+        //new RNFirebasePerformancePackage()
         //new RNFirebaseStoragePackage()
       );
     }
