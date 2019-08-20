@@ -30,3 +30,8 @@ then
     echo "File content:"
     cat $GOOGLE_CONFIG_IOS_FILE
 fi
+
+#Config Google Maps API
+GOOGLE_CONFIG_IOS_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/ReactNativeStart/AppDelegate.m
+sed 's/__GOOGLE_MAPS_KEY__/"$GOOGLE_MAPS_KEY"/' $GOOGLE_CONFIG_IOS_FILE > $GOOGLE_CONFIG_IOS_FILE
+
