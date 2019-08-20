@@ -3,6 +3,7 @@ package com.douglasfreitas.reactnativestart;
 import androidx.multidex.MultiDexApplication;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -35,6 +36,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new MapsPackage(),
             new RNCameraPackage(),
         new ReactNativeConfigPackage(),
         new RNGestureHandlerPackage(),
