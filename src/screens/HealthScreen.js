@@ -15,6 +15,7 @@ const HealthScreen = ({navigation}) => {
   const [camera, setCamera] = useState(false); 
   const [map, setMap] = useState(false); 
   const [position, setPosition] = useState({}); 
+  const [remoteConfig, setRemoteConfig] = useState({}); 
   let watchID;
 
   //console.log('navigator.geolocation');
@@ -24,6 +25,14 @@ const HealthScreen = ({navigation}) => {
     () => {
       navigator.geolocation.getCurrentPosition(onPositionEvent);
       watchId = navigator.geolocation.watchPosition(onPositionEvent);
+
+      firebase.config().fetch()
+        .then(() => firebase.config().activateFetched())
+        .then(() => firebase.config().getValue('var_teste_1'))
+        .then((data) => {
+          setRemoteConfig(data.val())
+        })
+        .catch((error) => console.log(`Error processing config: ${error}`));
 
       return () => {
         mounted = false;
@@ -59,6 +68,7 @@ const HealthScreen = ({navigation}) => {
     <SafeAreaView forceInset={{ top: 'always' }}>
       <ScrollView style={{}}>
         <Text>{ `Config ${JSON.stringify(Config)} ` }</Text>
+        <Text>{ `remoteConfig ${JSON.stringify(remoteConfig)} ` }</Text>
         
         <View style={styles.modules}>
           <Text style={styles.modulesHeader}>The following Firebase modules are pre-installed:</Text>

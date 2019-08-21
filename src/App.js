@@ -4,11 +4,16 @@ import {
   createDrawerNavigator,
   createSwitchNavigator
 } from 'react-navigation';
+import codePush from 'react-native-code-push';
 
 import LoginScreen from './screens/LoginScreen'
 import HomeScreen from './screens/HomeScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import HealthScreen from './screens/HealthScreen'
+
+const codePushOptions = { 
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME 
+};
 
 const drawerNavigator = createDrawerNavigator({
   Home: HomeScreen,
@@ -23,7 +28,7 @@ const switchNavigator = createSwitchNavigator({
   initialRouteName: 'Health',
 });
 
-const App = createAppContainer(switchNavigator);
+const App = codePush(codePushOptions)(createAppContainer(switchNavigator));
 
 export default () => {
   return (
