@@ -1,18 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import firebase from 'react-native-firebase';
 
 import Config from '../config';
 import Camera from '../components/Camera';
+import Map from '../components/Map';
 
-const HealthScreen = () => {
+const HealthScreen = ({navigation}) => {
   //FIREBASE ANALYTICS - samples  
-  //firebase.analytics().setCurrentScreen('HEALTH');
+  firebase.analytics().setCurrentScreen('HEALTH');
   //firebase.analytics().setUserId('douglas');
 
   const [camera, setCamera] = useState(false); 
+  const [map, setMap] = useState(false); 
+  const [position, setPosition] = useState({}); 
+  let watchID;
 
+  //console.log('navigator.geolocation');
+  //console.log(navigator.geolocation);
+
+  useEffect(
+    () => {
+      navigator.geolocation.getCurrentPosition(onPositionEvent);
+      watchId = navigator.geolocation.watchPosition(onPositionEvent);
+
+      return () => {
+        mounted = false;
+        navigator.geolocation.clearWatch(watchId);
+      };
+    },
+    [0]
+  );
+
+  
+  const onPositionEvent = (position) => {
+    // Create the object to update this.state.mapRegion through the onRegionChange function
+    let region = {
+      latitude:       position.coords.latitude,
+      longitude:      position.coords.longitude,
+      latitudeDelta:  0.00922*1.5,
+      longitudeDelta: 0.00421*1.5
+    }
+    onRegionChange(region, region.latitude, region.longitude);
+  }
+
+  const onRegionChange = (region, lastLat, lastLong) => {
+    setPosition({
+      mapRegion: region,
+      // If there are no new values set the current ones
+      lastLat: lastLat || this.state.lastLat,
+      lastLong: lastLong || this.state.lastLong
+    });
+  }
+
+  
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
       <ScrollView style={{}}>
@@ -42,6 +84,13 @@ const HealthScreen = () => {
           { camera ? <Camera /> : null }
           <TouchableOpacity onPress={() => setCamera(true)} style={{border: 1}}>
             <Text style={{ fontSize: 14 }}> Open camera </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{width: 200, height: 300}}>
+          { map ? <Map position={position} /> : null }
+          <TouchableOpacity onPress={() => setMap(true)} style={{border: 1}}>
+            <Text style={{ fontSize: 14 }}> Open map </Text>
           </TouchableOpacity>
         </View>
 
