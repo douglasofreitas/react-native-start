@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import firebase from 'react-native-firebase';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import Config from '../config';
 import Camera from '../components/Camera';
@@ -16,6 +17,7 @@ const HealthScreen = ({navigation}) => {
   const [map, setMap] = useState(false); 
   const [position, setPosition] = useState({}); 
   const [remoteConfig, setRemoteConfig] = useState({}); 
+  const [storeData, setStoreData] = useState(''); 
   let watchID;
 
   //console.log('navigator.geolocation');
@@ -23,9 +25,16 @@ const HealthScreen = ({navigation}) => {
 
   useEffect(
     () => {
-      navigator.geolocation.getCurrentPosition(onPositionEvent);
-      watchId = navigator.geolocation.watchPosition(onPositionEvent);
 
+      //geolocation
+      try {
+        navigator.geolocation.getCurrentPosition(onPositionEvent);
+        watchId = navigator.geolocation.watchPosition(onPositionEvent);
+      } catch(e) {
+        console.log(e);
+      }
+      
+      //remote config
       firebase.config().fetch()
         .then(() => firebase.config().activateFetched())
         .then(() => firebase.config().getValue('var_teste_1'))
@@ -33,6 +42,13 @@ const HealthScreen = ({navigation}) => {
           setRemoteConfig(data.val())
         })
         .catch((error) => console.log(`Error processing config: ${error}`));
+
+      //async store - set
+      setStoreValue('var1', 'value1');
+
+      //async store - get
+      getStoreValue('var1');
+
 
       return () => {
         mounted = false;
@@ -42,7 +58,8 @@ const HealthScreen = ({navigation}) => {
     [0]
   );
 
-  
+  //GEOLOCATION
+
   const onPositionEvent = (position) => {
     // Create the object to update this.state.mapRegion through the onRegionChange function
     let region = {
@@ -63,12 +80,32 @@ const HealthScreen = ({navigation}) => {
     });
   }
 
+
+  //ASYNC STORE
+
+  const setStoreValue = async (varName, value) => {
+    try {
+      await AsyncStorage.setItem(`@${varName}`, value)
+    } catch(e) {
+      // save error
+    }
+  }
+
+  const getStoreValue = async (varName) => {
+    try {
+      const value = await AsyncStorage.getItem(`@${varName}`)
+      setStoreData(value);
+    } catch(e) {
+      // read error
+    }
+  }
   
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
       <ScrollView style={{}}>
-        <Text>{ `Config ${JSON.stringify(Config)} ` }</Text>
-        <Text>{ `remoteConfig ${JSON.stringify(remoteConfig)} ` }</Text>
+        <Text>{ `Config: ${JSON.stringify(Config)} ` }</Text>
+        <Text>{ `remoteConfig: ${JSON.stringify(remoteConfig)} ` }</Text>
+        <Text>{ `storeData: ${JSON.stringify(storeData)} ` }</Text>
         <Text>{ `Codepush installed:  v1.0` }</Text>
         
         <View style={styles.modules}>
