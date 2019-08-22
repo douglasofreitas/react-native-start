@@ -69,6 +69,7 @@ const HealthScreen = ({navigation}) => {
       <ScrollView style={{}}>
         <Text>{ `Config ${JSON.stringify(Config)} ` }</Text>
         <Text>{ `remoteConfig ${JSON.stringify(remoteConfig)} ` }</Text>
+        <Text>{ `Codepush installed:  v1.0` }</Text>
         
         <View style={styles.modules}>
           <Text style={styles.modulesHeader}>The following Firebase modules are pre-installed:</Text>

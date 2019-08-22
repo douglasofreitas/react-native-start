@@ -15,11 +15,11 @@ then
     echo $GOOGLE_CONFIG_ANDROID | base64 --decode > $GOOGLE_CONFIG_ANDROID_FILE
     sed -i -e 's/\\"/'\"'/g' $GOOGLE_CONFIG_ANDROID_FILE
 
-    echo "File content:"
+    echo "File content: $GOOGLE_CONFIG_ANDROID_FILE"
     cat $GOOGLE_CONFIG_ANDROID_FILE
 fi
 
-#Config Android config files
+#Config iOS config files
 GOOGLE_CONFIG_IOS_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/GoogleService-Info.plist
 if [ -e "$GOOGLE_CONFIG_IOS_FILE" ]
 then
@@ -27,7 +27,7 @@ then
     echo $GOOGLE_CONFIG_IOS | base64 --decode > $GOOGLE_CONFIG_IOS_FILE
     sed -i -e 's/\\"/'\"'/g' $GOOGLE_CONFIG_IOS_FILE
 
-    echo "File content:"
+    echo "File content: $GOOGLE_CONFIG_IOS_FILE"
     cat $GOOGLE_CONFIG_IOS_FILE
 fi
 
@@ -36,3 +36,6 @@ GOOGLE_CONFIG_IOS_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/ReactNativeStart/AppDeleg
 sed 's/__GOOGLE_MAPS_KEY__/"$GOOGLE_MAPS_KEY"/' $GOOGLE_CONFIG_IOS_FILE > $GOOGLE_CONFIG_IOS_FILE
 GOOGLE_CONFIG_ANDROID_FILE=$APPCENTER_SOURCE_DIRECTORY/android/app/src/main/AndroidManifest.xml
 sed 's/__GOOGLE_MAPS_KEY__/"$GOOGLE_MAPS_KEY"/' $GOOGLE_CONFIG_ANDROID_FILE > $GOOGLE_CONFIG_ANDROID_FILE
+
+#run Jetijy to convert libs to AndroidX. OBS: RN 0.60 run automaticaly on build
+node node_modules/jetifier/bin/jetify
