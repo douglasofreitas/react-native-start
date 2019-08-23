@@ -34,8 +34,17 @@ fi
 #Config Google Maps API
 GOOGLE_CONFIG_IOS_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/ReactNativeStart/AppDelegate.m
 sed 's/__GOOGLE_MAPS_KEY__/"$GOOGLE_MAPS_KEY"/' $GOOGLE_CONFIG_IOS_FILE > $GOOGLE_CONFIG_IOS_FILE
+echo '---------------- GOOGLE MAPS API - iOS'
+echo "File content: $GOOGLE_CONFIG_IOS_FILE"
+cat $GOOGLE_CONFIG_IOS_FILE
+echo '----------------'
+
 GOOGLE_CONFIG_ANDROID_FILE=$APPCENTER_SOURCE_DIRECTORY/android/app/src/main/AndroidManifest.xml
 sed 's/__GOOGLE_MAPS_KEY__/"$GOOGLE_MAPS_KEY"/' $GOOGLE_CONFIG_ANDROID_FILE > $GOOGLE_CONFIG_ANDROID_FILE
+echo '---------------- GOOGLE MAPS API - Android'
+echo "File content: $GOOGLE_CONFIG_ANDROID_FILE"
+cat $GOOGLE_CONFIG_ANDROID_FILE
+echo '----------------'
 
 #run Jetijy to convert libs to AndroidX. OBS: RN 0.60 run automaticaly on build
 node node_modules/jetifier/bin/jetify
