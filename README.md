@@ -23,6 +23,8 @@ Libraries:
 Pending resourses:
 * upload files progress
 * get current position (navigation.geolocation)
+* prop-types
+* view videos
 
 
 ## Prepare Enviroment Variables

@@ -1,82 +1,89 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet, Text, TouchableOpacity, View,
+} from 'react-native';
 import { RNCamera } from 'react-native-camera';
 
-
 const Camera = () => {
-    const [camera, setCamera] = useState(null); 
-    const [uri, setUri] = useState(''); 
+  const [camera, setCamera] = useState(null);
+  const [uri, setUri] = useState('');
 
-    takePicture = async () => {
-      if (camera) {
-        const options = { quality: 0.5, base64: true };
-        const data = await camera.takePictureAsync(options)
-        setUri(data.uri);
-      }
+  const takePicture = async () => {
+    if (camera) {
+      const options = { quality: 0.5, base64: true };
+      const data = await camera.takePictureAsync(options);
+      setUri(data.uri);
     }
+  };
 
-    return (
-      <View style={styles.container}>
-        <RNCamera
-          ref={camera => { setCamera(camera) }}
-          style = {styles.preview}
-          type={RNCamera.Constants.Type.back}
-          autoFocus={RNCamera.Constants.AutoFocus.on}
-          flashMode={RNCamera.Constants.FlashMode.off}
-          androidCameraPermissionOptions={{
-            title: 'Permission to use camera',
-            message: 'We need your permission to use your camera',
-            buttonPositive: 'Ok',
-            buttonNegative: 'Cancel',
-          }}
-          androidRecordAudioPermissionOptions={{
-            title: 'Permission to use audio recording',
-            message: 'We need your permission to use your audio',
-            buttonPositive: 'Ok',
-            buttonNegative: 'Cancel',
-          }}
-          onGoogleVisionBarcodesDetected={({ barcodes }) => {
-            console.log(barcodes);
-          }}
-        />
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-          <TouchableOpacity onPress={this.takePicture} style={styles.capture}>
-            <Text style={{ fontSize: 14 }}> SNAP </Text>
-          </TouchableOpacity>
-          <Text style={{ fontSize: 10 }}> {uri} </Text>
-        </View>
+  return (
+    <View style={styles.container}>
+      <RNCamera
+        ref={(cam) => {
+          setCamera(cam);
+        }}
+        style={styles.preview}
+        type={RNCamera.Constants.Type.back}
+        autoFocus={RNCamera.Constants.AutoFocus.on}
+        flashMode={RNCamera.Constants.FlashMode.off}
+        androidCameraPermissionOptions={{
+          title: 'Permission to use camera',
+          message: 'We need your permission to use your camera',
+          buttonPositive: 'Ok',
+          buttonNegative: 'Cancel',
+        }}
+        androidRecordAudioPermissionOptions={{
+          title: 'Permission to use audio recording',
+          message: 'We need your permission to use your audio',
+          buttonPositive: 'Ok',
+          buttonNegative: 'Cancel',
+        }}
+        onGoogleVisionBarcodesDetected={({ barcodes }) => {
+          console.log(barcodes); // eslint-disable-line no-console
+        }}
+      />
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={takePicture} style={styles.capture}>
+          <Text style={{ fontSize: 14 }}> SNAP </Text>
+        </TouchableOpacity>
+        <Text style={{ fontSize: 10 }}>
+          {' '}
+          {uri}
+          {' '}
+        </Text>
       </View>
-    );
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    backgroundColor: "black"
+    flexDirection: 'column',
+    backgroundColor: 'black',
   },
   preview: {
     flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center"
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   buttonContainer: {
     flex: 0,
-    flexDirection: "row",
-    justifyContent: "center"
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   capture: {
     flex: 0,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     borderRadius: 5,
     padding: 15,
     paddingHorizontal: 20,
-    alignSelf: "center",
-    margin: 20
+    alignSelf: 'center',
+    margin: 20,
   },
   buttonText: {
-    fontSize: 14
-  }
+    fontSize: 14,
+  },
 });
 
 export default Camera;
