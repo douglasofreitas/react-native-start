@@ -2,16 +2,12 @@ import React from 'react';
 import { Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
-const HomeScreen = () => (
+const Profile2Screen = () => (
   <SafeAreaView forceInset={{ top: 'always' }}>
-    <Text>HomeScreen.. v2</Text>
+    <Text>Profile2 Screen</Text>
   </SafeAreaView>
 );
 
 // const styles = StyleSheet.create({});
 
-HomeScreen.navigationOptions = {
-  title: 'HOME',
-};
-
-export default HomeScreen;
+export default Profile2Screen;

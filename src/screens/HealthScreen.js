@@ -44,7 +44,7 @@ const HealthScreen = () => {
     getStoreValue('var1');
 
     return () => {
-      navigator.geolocation.clearWatch(this.watchId);
+      // navigator.geolocation.clearWatch(this.watchId);
     };
   }, [0]);
 
