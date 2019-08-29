@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
 import firebase from 'react-native-firebase';
 import AsyncStorage from '@react-native-community/async-storage';
+import I18n from '../i18n';
 
 import Config from '../config';
 import Camera from '../components/Camera';
@@ -24,6 +25,7 @@ const HealthScreen = () => {
   const [map, setMap] = useState(false);
   const [remoteConfig, setRemoteConfig] = useState({});
   const [storeData, setStoreData] = useState('');
+  const deviceLocale = I18n.currentLocale();
 
   useEffect(() => {
     // remote config
@@ -72,7 +74,9 @@ const HealthScreen = () => {
         <Text>{`Config: ${JSON.stringify(Config)} `}</Text>
         <Text>{`remoteConfig: ${JSON.stringify(remoteConfig)} `}</Text>
         <Text>{`storeData: ${JSON.stringify(storeData)} `}</Text>
-        <Text>Codepush installed: v1.0</Text>
+        <Text>Codepush installed </Text>
+        <Text>{`Default language ${deviceLocale} `}</Text>
+        <Text>{`Example translate ${I18n.t('hi')} `}</Text>
 
         <View style={styles.modules}>
           <Text style={styles.modulesHeader}>

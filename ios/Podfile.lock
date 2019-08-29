@@ -185,6 +185,8 @@ PODS:
     - React
   - RNGestureHandler (1.3.0):
     - React
+  - RNI18n (2.0.15):
+    - React
   - SSZipArchive (2.2.2)
   - yoga (0.59.9.React)
 
@@ -215,6 +217,7 @@ DEPENDENCIES:
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNI18n (from `../node_modules/react-native-i18n`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -257,6 +260,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNI18n:
+    :path: "../node_modules/react-native-i18n"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -288,9 +293,10 @@ SPEC CHECKSUMS:
   react-native-maps: bb480348a3fe1e5a811fed1ba3387b329161c5cc
   RNCAsyncStorage: e99188b8a89ea0edddc82d8831cd5142f4550fdc
   RNGestureHandler: 7ccf2f3f60458e084f9ada01fbaf610f6fef073c
+  RNI18n: 46b8694063fbd699f2c06a4dc8e835b3176763b1
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   yoga: 128daf064cacaede0c3bb27424b6b4c71052e6cd
 
-PODFILE CHECKSUM: f00ec8d102e2855065bbd52af60115adb3a17bd3
+PODFILE CHECKSUM: e062da4bab94bf8f528340fac912c7b2b70851fe
 
 COCOAPODS: 1.5.3

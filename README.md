@@ -16,6 +16,7 @@ Libraries:
 * react-native-elements
 * react-native-config
 * react-native-firebase
+* react-native-i18n
 * axios
 * jest-enzyme
 * eslint
