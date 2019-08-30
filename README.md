@@ -7,6 +7,9 @@ Project with:
 React: "16.8.3"
 React Native: "0.59.10"
 
+To use demo version, use the API above to test login (Auth):
+https://github.com/douglasofreitas/node-jwt-authentication-api
+
 Use:
 * Hooks
 
