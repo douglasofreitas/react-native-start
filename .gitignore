@@ -33,6 +33,10 @@ local.properties
 *.iml
 #*/**/google-services.json
 
+# local files
+android/app/google-services.json.local
+ios/GoogleService-Info.plist.local
+
 # node.js
 #
 node_modules/

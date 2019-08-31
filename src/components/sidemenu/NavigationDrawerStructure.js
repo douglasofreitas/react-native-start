@@ -9,7 +9,7 @@ const toggleDrawer = (navigationProps) => {
 const NavigationDrawerStructure = ({ navigationProps }) => (
   <View>
     <TouchableOpacity onPress={() => { toggleDrawer(navigationProps); }}>
-      <Text>MENU</Text>
+      <Text>Icon:menu</Text>
     </TouchableOpacity>
   </View>
 );

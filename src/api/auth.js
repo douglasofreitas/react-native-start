@@ -1,28 +1,21 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
-
-let url;
-if (__DEV__) {
-  url = 'http://cd14184c.ngrok.io';
-} else {
-  url = 'https://sleepy-savannah-10606.herokuapp.com';
-}
+import Config from '../config';
 
 const instance = axios.create({
-  baseURL: url
+  baseURL: Config.api_auth_host,
 });
 
 instance.interceptors.request.use(
-  async config => {
+  async (config) => {
     const token = await AsyncStorage.getItem('token');
     if (token) {
+      // eslint-disable-next-line no-param-reassign
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  err => {
-    return Promise.reject(err);
-  }
+  (err) => Promise.reject(err),
 );
 
 export default instance;

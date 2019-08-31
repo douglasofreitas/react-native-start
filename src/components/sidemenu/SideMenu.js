@@ -6,10 +6,10 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import { withNavigation } from 'react-navigation';
-import PropTypes from 'prop-types';
 
-const SideMenu = ({ navigation }) => {
+import { navigate } from '../../navigationRef';
+
+const SideMenu = () => {
   const menuOptions = [
     {
       mainHeading: 'Home',
@@ -20,7 +20,7 @@ const SideMenu = ({ navigation }) => {
     {
       mainHeading: 'Profile',
       subOptions: [
-        { secondaryHeading: 'Go to Profile', navigationPath: 'Profile1' },
+        { secondaryHeading: 'Go to Profile', navigationPath: 'Profile' },
       ],
     },
     {
@@ -40,7 +40,7 @@ const SideMenu = ({ navigation }) => {
               <Text style={styles.mainHeading}>{option.mainHeading}</Text>
               {option.subOptions.map((item, key) => (
                 <View style={styles.secondaryHeading} key={key}>
-                  <Text onPress={() => { navigation.navigate(item.navigationPath); }}>
+                  <Text onPress={() => { navigate(item.navigationPath); }}>
                     {item.secondaryHeading}
                   </Text>
                 </View>
@@ -72,10 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-SideMenu.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default withNavigation(SideMenu);
+export default SideMenu;

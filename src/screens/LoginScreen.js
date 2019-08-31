@@ -1,41 +1,39 @@
 import React, { useContext } from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
-import PropTypes from 'prop-types';
+import { Text } from 'react-native';
+import { SafeAreaView, NavigationEvents } from 'react-navigation';
+
 
 import { Context } from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
+import NavLink from '../components/NavLink';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
   const { state, signin, clearErrorMessage } = useContext(Context);
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
+      <NavigationEvents onWillBlur={clearErrorMessage} />
       <Text>Login Screen</Text>
       <AuthForm
-        headerText="Sign In to Your Account"
+        headerText="Login Form"
         errorMessage={state.errorMessage}
         onSubmit={signin}
-        submitButtonText="Sign In"
+        submitButtonText="Login"
       />
-      <TouchableOpacity onPress={() => { navigation.navigate('Home'); }} style={styles.button}>
-        <Text>Acessar</Text>
-      </TouchableOpacity>
+      <NavLink
+        text="Link to go Home"
+        routeName="Home"
+      />
     </SafeAreaView>
   );
 };
-
+/*
 const styles = StyleSheet.create({
   button: {
     margin: 50,
-    backgroundColor: '#AAA',
+    padding: 50,
+    backgroundColor: '#EEE',
   },
 });
-
-LoginScreen.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
+*/
 export default LoginScreen;

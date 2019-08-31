@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
-import { Text, Button, Input } from 'react-native-elements';
+import {
+  StyleSheet,
+  Text,
+  Button,
+  TextInput,
+} from 'react-native';
+import PropTypes from 'prop-types';
 import Spacer from './Spacer';
 
-const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
-  const [email, setEmail] = useState('');
+const AuthForm = ({
+  headerText,
+  errorMessage,
+  onSubmit,
+  submitButtonText,
+}) => {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   return (
@@ -12,17 +22,17 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
       <Spacer>
         <Text h3>{headerText}</Text>
       </Spacer>
-      <Input
-        label="Email"
-        value={email}
-        onChangeText={setEmail}
+      <Text>Login</Text>
+      <TextInput
+        value={username}
+        onChangeText={setUsername}
         autoCapitalize="none"
         autoCorrect={false}
       />
       <Spacer />
-      <Input
+      <Text>Password</Text>
+      <TextInput
         secureTextEntry
-        label="Password"
         value={password}
         onChangeText={setPassword}
         autoCapitalize="none"
@@ -34,7 +44,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
       <Spacer>
         <Button
           title={submitButtonText}
-          onPress={() => onSubmit({ email, password })}
+          onPress={() => onSubmit({ username, password })}
         />
       </Spacer>
     </>
@@ -49,5 +59,12 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
 });
+
+AuthForm.propTypes = {
+  headerText: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  submitButtonText: PropTypes.string.isRequired,
+};
 
 export default AuthForm;
