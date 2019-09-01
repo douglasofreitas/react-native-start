@@ -1,7 +1,18 @@
 {
   "name": "react-native-start",
+  "description": "React Native App with popular libraries ready to use",
   "version": "5.4.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/douglasofreitas/react-native-start.git"
+  },
+  "author": "Douglas Freitas <douglasofreitas@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/douglasofreitas/react-native-start/issues"
+  },
+  "homepage": "https://github.com/douglasofreitas/react-native-start",
   "scripts": {
     "android-bundle": "ORG_GRADLE_PROJECT_bundleInDev=true npm run android",
     "android": "react-native run-android",
@@ -27,6 +38,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "fs-extra": "^7.0.1",
     "jetifier": "^1.6.4",
+    "mem": "^5.1.1",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "16.8.3",

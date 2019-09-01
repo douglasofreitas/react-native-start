@@ -21,13 +21,13 @@ Libraries:
 * react-native-firebase
 * react-native-i18n
 * axios
+* prop-types
 * jest-enzyme
 * eslint
 
 Pending resourses:
 * upload files progress
 * get current position (navigation.geolocation)
-* prop-types
 * view videos
 
 
@@ -74,6 +74,7 @@ To use the script, create the environment variables as:
 * GOOGLE_CONFIG_ANDROID = base64 of google-services.json
 * GOOGLE_CONFIG_IOS = base64 of GoogleService-Info.plist
 * GOOGLE_MAPS_KEY = Google Maps Key from GCP
+* CODEPUSH_KEY = Key of Appcenter Codepush
 
 Example of environment in AppCenter backoffice
 RN_<VAR_NAME>=value
