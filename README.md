@@ -1,5 +1,7 @@
 # React Native Start 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7546a6588d0a49598c6dd0325759e04c)](https://app.codacy.com/app/douglasofreitas/react-native-start?utm_source=github.com&utm_medium=referral&utm_content=douglasofreitas/react-native-start&utm_campaign=Badge_Grade_Dashboard)
+
 Simple react-native app with usefull libraries.
 
 Project with:
