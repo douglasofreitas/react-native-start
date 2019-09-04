@@ -3,7 +3,7 @@ import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import PropTypes from 'prop-types';
 
-const Profile2Screen = ({ navigation }) => (
+export const Screen = ({ navigation }) => (
   <SafeAreaView forceInset={{ top: 'always' }}>
     <Text>Profile2 Screen</Text>
 
@@ -21,10 +21,8 @@ const styles = StyleSheet.create({
   },
 });
 
-Profile2Screen.propTypes = {
+Screen.propTypes = {
   navigation: PropTypes.shape({
     pop: PropTypes.func.isRequired,
   }).isRequired,
 };
-
-export default Profile2Screen;

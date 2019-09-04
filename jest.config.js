@@ -3,11 +3,10 @@ module.exports = {
   setupFiles: ['<rootDir>/setup-test.js', './jestSetup.js'],
   modulePaths: ['modules'],
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|natura-design-system|react-native-share|react-native-globalize)/)',
+    'node_modules/(?!(react-native|natura-design-system|react-native-firebase|react-native-config|react-native-i18n)/)',
   ],
   modulePathIgnorePatterns: [
     '<rootDir>/node_modules/natura-design-system/',
-    '<rootDir>/node_modules/react-native-share/',
   ],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/ios/'],
   transform: {

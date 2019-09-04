@@ -3,9 +3,9 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import PropTypes from 'prop-types';
 
-import { Context as AuthContext } from '../context/AuthContext';
+import { Context as AuthContext } from '../../context/Auth';
 
-const ProfileScreen = ({ navigation }) => {
+export const Screen = ({ navigation }) => {
   const { signout } = useContext(AuthContext);
 
   return (
@@ -30,10 +30,8 @@ const styles = StyleSheet.create({
   },
 });
 
-ProfileScreen.propTypes = {
+Screen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
-
-export default ProfileScreen;

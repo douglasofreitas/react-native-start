@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screen: Health Render 1`] = `ShallowWrapper {}`;
+
+exports[`Screen: Health snapshot 1`] = `ShallowWrapper {}`;

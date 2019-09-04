@@ -2,12 +2,11 @@ import React, { useContext } from 'react';
 import { Text } from 'react-native';
 import { SafeAreaView, NavigationEvents } from 'react-navigation';
 
+import { Context } from '../../context/Auth';
+import AuthForm from '../../components/AuthForm';
+import NavLink from '../../components/NavLink';
 
-import { Context } from '../context/AuthContext';
-import AuthForm from '../components/AuthForm';
-import NavLink from '../components/NavLink';
-
-const LoginScreen = () => {
+export const Screen = () => {
   const { state, signin, clearErrorMessage } = useContext(Context);
 
   return (
@@ -36,4 +35,3 @@ const styles = StyleSheet.create({
   },
 });
 */
-export default LoginScreen;

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: AuthForm Render 1`] = `ShallowWrapper {}`;

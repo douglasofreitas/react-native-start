@@ -10,13 +10,13 @@ import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
 import firebase from 'react-native-firebase';
 import AsyncStorage from '@react-native-community/async-storage';
-import I18n from '../i18n';
+import I18n from '../../i18n';
 
-import Config from '../config';
-import Camera from '../components/Camera';
-import Map from '../components/Map';
+import Config from '../../config';
+import Camera from '../../components/Camera';
+import Map from '../../components/Map';
 
-const HealthScreen = () => {
+export const Screen = () => {
   // FIREBASE ANALYTICS - samples
   firebase.analytics().setCurrentScreen('HEALTH');
   // firebase.analytics().setUserId('douglas');
@@ -171,10 +171,8 @@ const styles = StyleSheet.create({
   },
 });
 
-HealthScreen.propTypes = {
+Screen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
-
-export default HealthScreen;
