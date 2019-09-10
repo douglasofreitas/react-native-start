@@ -6,7 +6,7 @@ const toggleDrawer = (navigationProps) => {
   navigationProps.toggleDrawer();
 };
 
-const NavigationDrawerStructure = ({ navigationProps }) => (
+const NavigationDrawer = ({ navigationProps }) => (
   <View>
     <TouchableOpacity onPress={() => { toggleDrawer(navigationProps); }}>
       <Text>Icon:menu</Text>
@@ -16,10 +16,10 @@ const NavigationDrawerStructure = ({ navigationProps }) => (
 
 // const styles = StyleSheet.create({});
 
-NavigationDrawerStructure.propTypes = {
+NavigationDrawer.propTypes = {
   navigationProps: PropTypes.shape({
     toggleDrawer: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default NavigationDrawerStructure;
+export default NavigationDrawer;

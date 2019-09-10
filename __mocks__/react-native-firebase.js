@@ -5,7 +5,19 @@ export default {
   })),
   admob: { nativeModuleExists: true },
   auth: { nativeModuleExists: true },
-  config: { nativeModuleExists: true },
+  config: jest.fn(() => ({
+    fetch: jest.fn(() => ({
+      then: jest.fn(() => ({
+        then: jest.fn(() => ({
+          then: jest.fn(() => ({
+            then: jest.fn(),
+            catch: jest.fn(),
+          })),
+          catch: jest.fn(),
+        })),
+      })),
+    })),
+  })),
   crashlytics: { nativeModuleExists: true },
   database: { nativeModuleExists: true },
   firestore: { nativeModuleExists: true },

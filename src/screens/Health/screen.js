@@ -138,8 +138,6 @@ Screen.propTypes = {
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   services: PropTypes.shape({
-    signin: PropTypes.func.isRequired,
-    clearErrorMessage: PropTypes.func.isRequired,
     state: PropTypes.shape({
       errorMessage: PropTypes.string,
     }),

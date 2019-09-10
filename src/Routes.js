@@ -13,14 +13,14 @@ import Profile2Screen from './screens/Profile2';
 import HealthScreen from './screens/Health';
 
 import SideMenu from './components/sidemenu/SideMenu';
-import NavigationDrawerStructure from './components/sidemenu/NavigationDrawerStructure';
+import NavigationDrawer from './components/sidemenu/NavigationDrawer';
 
 const stackNavigatorHome = createStackNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Home Screen',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerLeft: <NavigationDrawer navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#FF9800',
       },
@@ -34,7 +34,7 @@ const stackNavigatorProfile = createStackNavigator({
     screen: ProfileScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Profile Screen',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerLeft: <NavigationDrawer navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#FF9800',
       },
@@ -45,7 +45,7 @@ const stackNavigatorProfile = createStackNavigator({
     screen: Profile2Screen,
     navigationOptions: ({ navigation }) => ({
       title: 'Profile Screen',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} back />,
+      headerLeft: <NavigationDrawer navigationProps={navigation} back />,
       headerStyle: {
         backgroundColor: '#FF9800',
       },
@@ -59,7 +59,7 @@ const stackNavigatorHealth = createStackNavigator({
     screen: HealthScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Health Screen',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerLeft: <NavigationDrawer navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#FF9800',
       },

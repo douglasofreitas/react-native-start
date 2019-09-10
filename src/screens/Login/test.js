@@ -4,7 +4,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
-import { Screen } from './index';
+import Screen from './index';
 import { Provider as AuthProvider } from '../../context/Auth';
 
 describe('Screen: Login', () => {
