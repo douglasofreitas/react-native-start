@@ -22,4 +22,6 @@ export default {
   clear: () => new Promise((resolve) => resolve(cache = {})),
 
   getAllKeys: () => new Promise((resolve) => resolve(Object.keys(cache))),
+
+  getAllValues: () => new Promise((resolve) => resolve(cache)),
 };

@@ -6,11 +6,11 @@ import {
 } from 'react-navigation';
 import { Dimensions } from 'react-native';
 
-import { Screen as LoginScreen } from './screens/Login';
-import { Screen as HomeScreen } from './screens/Home';
-import { Screen as ProfileScreen } from './screens/Profile';
-import { Screen as Profile2Screen } from './screens/Profile2';
-import { Screen as HealthScreen } from './screens/Health';
+import LoginScreen from './screens/Login';
+import HomeScreen from './screens/Home';
+import ProfileScreen from './screens/Profile';
+import Profile2Screen from './screens/Profile2';
+import HealthScreen from './screens/Health';
 
 import SideMenu from './components/sidemenu/SideMenu';
 import NavigationDrawerStructure from './components/sidemenu/NavigationDrawerStructure';

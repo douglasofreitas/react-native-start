@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
+import { navigate } from '../navigationRef';
 
 export default (reducer, actions, defaultValue) => {
   const Context = React.createContext();
@@ -9,7 +10,7 @@ export default (reducer, actions, defaultValue) => {
 
     const boundActions = {};
     Object.keys(actions).forEach((key) => {
-      boundActions[key] = actions[key](dispatch);
+      boundActions[key] = actions[key](dispatch, navigate);
     });
 
     return (

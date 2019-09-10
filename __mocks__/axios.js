@@ -1,12 +1,22 @@
+const config = {};
+
+let middleware = null;
+
 export default {
   create: jest.fn(() => ({
     interceptors: {
       request: {
-        use: jest.fn(),
+        use: jest.fn((func) => {
+          middleware = func;
+        }),
       },
     },
-    get: jest.fn(() => Promise.resolve({ data: {} })),
+    get: jest.fn(() => {
+      middleware(config);
+      Promise.resolve({ data: {} });
+    }),
     post: jest.fn((url, data) => {
+      middleware(config);
       switch (url) {
         case '/users/authenticate':
           if (data.username === 'test') {

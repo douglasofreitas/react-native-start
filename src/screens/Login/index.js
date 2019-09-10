@@ -1,37 +1,4 @@
-import React, { useContext } from 'react';
-import { Text } from 'react-native';
-import { SafeAreaView, NavigationEvents } from 'react-navigation';
+import { Screen } from './screen';
+import { withServices } from './services';
 
-import { Context } from '../../context/Auth';
-import AuthForm from '../../components/AuthForm';
-import NavLink from '../../components/NavLink';
-
-export const Screen = () => {
-  const { state, signin, clearErrorMessage } = useContext(Context);
-
-  return (
-    <SafeAreaView forceInset={{ top: 'always' }}>
-      <NavigationEvents onWillBlur={clearErrorMessage} />
-      <Text>Login Screen</Text>
-      <AuthForm
-        headerText="Login Form"
-        errorMessage={state.errorMessage}
-        onSubmit={signin}
-        submitButtonText="Login"
-      />
-      <NavLink
-        text="Link to go Home"
-        routeName="Home"
-      />
-    </SafeAreaView>
-  );
-};
-/*
-const styles = StyleSheet.create({
-  button: {
-    margin: 50,
-    padding: 50,
-    backgroundColor: '#EEE',
-  },
-});
-*/
+export default withServices(Screen);
