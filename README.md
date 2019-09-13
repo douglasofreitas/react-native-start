@@ -1,13 +1,15 @@
 # React Native Start 
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7546a6588d0a49598c6dd0325759e04c)](https://app.codacy.com/app/douglasofreitas/react-native-start?utm_source=github.com&utm_medium=referral&utm_content=douglasofreitas/react-native-start&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a5db3937935a42b0941411f9750152ca)](https://www.codacy.com/manual/douglasofreitas/react-native-start_2?utm_source=github.com&utm_medium=referral&utm_content=natura-cosmeticos/react-native-start&utm_campaign=Badge_Coverage)
+[![Build status](https://build.appcenter.ms/v0.1/apps/fa1d2c09-f10c-4f58-9733-e231fa9a8218/branches/dev/badge)](https://appcenter.ms)
+[![Build status](https://build.appcenter.ms/v0.1/apps/187dde4d-1402-48ee-947f-686ae36c4c85/branches/dev/badge)](https://appcenter.ms)
 
 Boilerplate of react-native app with usefull libraries.
 
 Project with:
 
 React: "16.8.3"
-React Native: "0.59.10"
+React Native: "0.59.9"
 
 To use demo version, use the API above to test login (Auth):
 https://github.com/douglasofreitas/node-jwt-authentication-api

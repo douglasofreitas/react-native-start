@@ -1424,7 +1424,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.douglasfreitas.reactnativestart;
+				PRODUCT_BUNDLE_IDENTIFIER = net.natura.rn.start;
 				PRODUCT_NAME = ReactNativeStart;
 				PROVISIONING_PROFILE_SPECIFIER = "RN Start Dev";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1455,7 +1455,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.douglasfreitas.reactnativestart;
+				PRODUCT_BUNDLE_IDENTIFIER = net.natura.rn.start;
 				PRODUCT_NAME = ReactNativeStart;
 				PROVISIONING_PROFILE_SPECIFIER = "RN Start Prod";
 				VERSIONING_SYSTEM = "apple-generic";
