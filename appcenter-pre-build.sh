@@ -60,4 +60,8 @@ cat $CODEPUSH_ANDROID_FILE
 echo '----------------'
 
 #run Jetijy to convert libs to AndroidX. OBS: RN 0.60 run automaticaly on build
-node node_modules/jetifier/bin/jetify
+if [ "$PLATAFORM_ANDROID" == "true" ]
+then
+    echo "Running jetify"
+    node node_modules/jetifier/bin/jetify
+fi
