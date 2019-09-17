@@ -7,6 +7,7 @@ PODS:
     - React
     - SSZipArchive (~> 2.1)
   - DoubleConversion (1.1.5)
+  - Dynatrace/lib (7.2.7.1244)
   - Firebase/Analytics (6.3.0):
     - Firebase/Core
   - Firebase/Core (6.3.0):
@@ -128,6 +129,15 @@ PODS:
     - React
   - react-native-maps (0.25.0):
     - React
+  - react-native-netinfo (4.2.1):
+    - React
+  - react-native-video (4.4.4):
+    - React
+    - react-native-video/Video (= 4.4.4)
+  - react-native-video/Video (4.4.4):
+    - React
+  - react-native-webview (7.0.5):
+    - React
   - React/Core (0.59.9):
     - yoga (= 0.59.9.React)
   - React/CxxBridge (0.59.9):
@@ -181,6 +191,8 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
+  - rn-fetch-blob (0.10.6):
+    - React/Core
   - RNCAsyncStorage (1.6.1):
     - React
   - RNGestureHandler (1.3.0):
@@ -192,6 +204,7 @@ PODS:
 
 DEPENDENCIES:
   - CodePush (from `../node_modules/react-native-code-push`)
+  - Dynatrace/lib (~> 7.2)
   - Firebase/Analytics (~> 6.3.0)
   - Firebase/Core (~> 6.3.0)
   - Firebase/Messaging (~> 6.3.0)
@@ -202,6 +215,9 @@ DEPENDENCIES:
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-config (from `../node_modules/react-native-config`)
   - react-native-maps (from `../node_modules/react-native-maps`)
+  - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
+  - react-native-video (from `../node_modules/react-native-video`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -215,6 +231,7 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+  - rn-fetch-blob (from `../node_modules/rn-fetch-blob`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNI18n (from `../node_modules/react-native-i18n`)
@@ -225,6 +242,7 @@ SPEC REPOS:
     - Base64
     - boost-for-react-native
     - DoubleConversion
+    - Dynatrace
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -256,6 +274,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-config"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
+  react-native-netinfo:
+    :path: "../node_modules/@react-native-community/netinfo"
+  react-native-video:
+    :path: "../node_modules/react-native-video"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
+  rn-fetch-blob:
+    :path: "../node_modules/rn-fetch-blob"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
   RNGestureHandler:
@@ -270,6 +296,7 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CodePush: f6b348759cdc42c734d9c3a46ceb2997c270b12e
   DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
+  Dynatrace: dfa6f517d146a44c5cda80ed8aac382edf7fb4db
   Firebase: 8432d732974498afd5987e9001a05f90f1a3d625
   FirebaseABTesting: a32c488eb75089a61eb3d86db061dfb909d765db
   FirebaseAnalytics: 470ddab7253b21ad5a40bebd4a9903d7ae19386a
@@ -291,12 +318,16 @@ SPEC CHECKSUMS:
   react-native-camera: 9c50d7def800895e7991ccda6203929553ceec9c
   react-native-config: 8c2a92aa66a6cec1a23d9eda7ba6fcf31a63ace5
   react-native-maps: bb480348a3fe1e5a811fed1ba3387b329161c5cc
+  react-native-netinfo: a91b5cf92ed3ada997cfe2bf067633386eb19fd8
+  react-native-video: 44c6befbc1526283ca1919891fcebe4680feade4
+  react-native-webview: ad9581723f4d401c22cb3a371811d4dc9310df56
+  rn-fetch-blob: 76a8f798dae965bbcd146a2438f2e1d381c91ae3
   RNCAsyncStorage: e99188b8a89ea0edddc82d8831cd5142f4550fdc
   RNGestureHandler: 7ccf2f3f60458e084f9ada01fbaf610f6fef073c
   RNI18n: 46b8694063fbd699f2c06a4dc8e835b3176763b1
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   yoga: 128daf064cacaede0c3bb27424b6b4c71052e6cd
 
-PODFILE CHECKSUM: e062da4bab94bf8f528340fac912c7b2b70851fe
+PODFILE CHECKSUM: 758cb8c948df89b12323551c0e91ff2ffe03492b
 
 COCOAPODS: 1.5.3

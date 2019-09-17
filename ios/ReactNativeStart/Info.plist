@@ -61,5 +61,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>DTXAgentEnvironment</key>
+	<string>bf36005mii</string>
+	<key>DTXApplicationID</key>
+	<string>__DYNATRACE_APP_ID__</string>
+	<key>DTXClusterURL</key>
+	<string>__DYNATRACE_BEACON_URL__</string>
 </dict>
 </plist>

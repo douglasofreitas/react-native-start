@@ -7,7 +7,7 @@ set | egrep -e $ENV_WHITELIST | sed 's/^RN_//g' > .env
 printf "\n.env created with contents:\n\n"
 cat .env
 
-#Config Android config files
+#Config Firebase Android config files
 GOOGLE_CONFIG_ANDROID_FILE=$APPCENTER_SOURCE_DIRECTORY/android/app/google-services.json
 if [ -e "$GOOGLE_CONFIG_ANDROID_FILE" ]
 then
@@ -19,7 +19,7 @@ then
     cat $GOOGLE_CONFIG_ANDROID_FILE
 fi
 
-#Config iOS config files
+#Config Firebase iOS config files
 GOOGLE_CONFIG_IOS_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/GoogleService-Info.plist
 if [ -e "$GOOGLE_CONFIG_IOS_FILE" ]
 then
@@ -56,6 +56,21 @@ echo '----------------'
 CODEPUSH_ANDROID_FILE=$APPCENTER_SOURCE_DIRECTORY/android/app/src/main/res/values/strings.xml
 sed -i -e "s/__CODEPUSH_KEY__/$CODEPUSH_KEY/" $CODEPUSH_ANDROID_FILE 
 echo "Codepush Key: File content: $CODEPUSH_ANDROID_FILE"
+cat $CODEPUSH_ANDROID_FILE
+echo '----------------'
+
+#Config Dynatrace
+DYNATRACE_IOS_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/ReactNativeStart/Info.plist
+sed -i -e "s/__DYNATRACE_APP_ID__/$DYNATRACE_APP_ID/" $DYNATRACE_IOS_FILE 
+sed -i -e "s/__DYNATRACE_BEACON_URL__/$DYNATRACE_BEACON_URL/" $DYNATRACE_IOS_FILE 
+echo "DYNATRACE Key: File content: $DYNATRACE_IOS_FILE"
+cat $CODEPUSH_IOS_FILE
+echo '----------------'
+
+DYNATRACE_ANDROID_FILE=$APPCENTER_SOURCE_DIRECTORY/android/app/build.gradle
+sed -i -e "s/__DYNATRACE_APP_ID__/$DYNATRACE_APP_ID/" $DYNATRACE_ANDROID_FILE 
+sed -i -e "s/__DYNATRACE_BEACON_URL__/$DYNATRACE_BEACON_URL/" $DYNATRACE_ANDROID_FILE 
+echo "DYNATRACE Key: File content: $DYNATRACE_ANDROID_FILE"
 cat $CODEPUSH_ANDROID_FILE
 echo '----------------'
 

@@ -20,20 +20,28 @@ Use:
 Libraries: 
 * react-navigation
 * react-native-async-storage
-* react-native-elements
 * react-native-config
 * react-native-firebase
+* react-native-code-push
 * react-native-i18n
+* react-native-cached-images
+* react-native-camera
+* react-native-webview
+* react-native-maps
+* react-native-elements
 * axios
 * prop-types
 * jest-enzyme
 * eslint
+* test (jest)
+* codacy-coverage
 
-Pending resourses:
+Pending samples:
 * upload files progress
 * get current position (navigation.geolocation)
-* view videos
 
+Native Libraries:
+* Dynatrace
 
 ## Prepare Enviroment Variables
 

@@ -4,27 +4,26 @@ import {
   StyleSheet,
   Text,
   ScrollView,
-  TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
+import { CachedImage } from 'react-native-cached-images';
+
 import I18n from '../../i18n';
 
 import Config from '../../config';
-import Camera from '../../components/Camera';
-import Map from '../../components/Map';
 
 export class Screen extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      camera: false,
-      map: false,
       remoteConfig: {},
       storeData: '',
       deviceLocale: I18n.currentLocale(),
     };
+
+    this.renderVideo = this.renderVideo.bind(this);
   }
 
   componentWillMount() {
@@ -54,8 +53,6 @@ export class Screen extends Component {
       remoteConfig,
       storeData,
       deviceLocale,
-      camera,
-      map,
     } = this.state;
 
     return (
@@ -66,7 +63,12 @@ export class Screen extends Component {
           <Text>{`storeData: ${JSON.stringify(storeData)} `}</Text>
           <Text>Codepush installed </Text>
           <Text>{`Default language ${deviceLocale} `}</Text>
-          <Text>{`Example translate ${I18n.t('hi')} `}</Text>
+          <Text>{`Example translate (i18n): ${I18n.t('hi')} `}</Text>
+
+          <Text>Cache image:</Text>
+          <View style={{ height: 300, width: 300 }}>
+            <CachedImage style={{ flex: 1 }} source={{ uri: 'https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' }} />
+          </View>
 
           <View style={styles.modules}>
             <Text style={styles.modulesHeader}>
@@ -87,25 +89,6 @@ export class Screen extends Component {
             {firebase.notifications.nativeModuleExists && (
               <Text style={styles.module}>notifications()</Text>
             )}
-          </View>
-
-          <Text>CAMERA</Text>
-          <View style={{ width: 200, height: 100 }}>
-            {camera ? <Camera /> : null}
-            <TouchableOpacity
-              onPress={() => this.setState({ camera: true })}
-              style={{ border: 1 }}
-            >
-              <Text style={{ fontSize: 14 }}> Open camera </Text>
-            </TouchableOpacity>
-          </View>
-
-          <Text>MAP</Text>
-          <View style={{ width: 200, height: 300 }}>
-            {map ? <Map /> : null}
-            <TouchableOpacity onPress={() => this.setState({ map: true })} style={{ border: 1 }}>
-              <Text style={{ fontSize: 14 }}> Open map </Text>
-            </TouchableOpacity>
           </View>
         </ScrollView>
       </SafeAreaView>

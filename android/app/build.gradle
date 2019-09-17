@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "com.google.firebase.firebase-perf"
 apply plugin: 'io.fabric'
+apply plugin: 'com.dynatrace.tools.android'
 
 import com.android.build.OutputFile
 
@@ -149,6 +150,10 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-video')
+    implementation project(':@react-native-community_netinfo')
+    implementation project(':react-native-webview')
+    implementation project(':rn-fetch-blob')
     implementation project(':react-native-i18n')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-code-push')
@@ -225,6 +230,9 @@ dependencies {
 
     // For React Native Firebase Notifications
     implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
+
+    //Dynatrace
+    implementation 'com.dynatrace.agent:agent-android:7.2.5.1214'
 }
 
 // Run this once to be able to run the application with BUCK
@@ -236,3 +244,10 @@ task copyDownloadableDepsToLibs(type: Copy) {
 
 apply plugin: 'com.google.gms.google-services'
 googleServices { disableVersionCheck = true }
+
+dynatrace {
+	defaultConfig {
+		applicationId '__DYNATRACE_APP_ID__'
+		beaconURL '__DYNATRACE_BEACON_URL__'
+	}
+}

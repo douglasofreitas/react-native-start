@@ -3,7 +3,7 @@
 buildscript {
     ext {
         buildToolsVersion = "28.0.3"
-        minSdkVersion = 26
+        minSdkVersion = 23
         compileSdkVersion = 28
         targetSdkVersion = 28
         supportLibVersion = "28.0.0"
@@ -20,6 +20,7 @@ buildscript {
         classpath 'com.google.gms:google-services:4.3.0'
         classpath 'com.google.firebase:perf-plugin:1.2.1'
         classpath 'io.fabric.tools:gradle:1.28.1'
+        classpath 'com.dynatrace.tools:android:7.2.+'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
