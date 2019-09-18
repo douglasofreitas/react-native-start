@@ -48,6 +48,35 @@ Native Libraries:
 App Center build de .env file using script "appcenter-pre-build.sh"
 The ".env.sample" file is a sample of .env generate by APP Center and is used to run local.
 
+Create the folder "DATA" next to the project folder:
+
+```
+ - react-native-start (project folder)
+ - DATA
+    _ certificates
+        - ios
+            - .p12 and .mobileprovision certificates 
+        - android
+            - .keystore file
+    - dev (ENV: environment folder)
+        - google-services.json
+        - GoogleService-Info.plist
+    - master 
+        ...
+```
+
+After prepare DATA folder, run code to prepare the project
+
+```
+./local-load-config-env.sh
+```
+
+Before commit your changes, run code below to reset configurations
+
+```
+./local-hide-config-env.sh
+```
+
 ## Run app
 
 Follow the steps to run APP.
@@ -87,6 +116,9 @@ To use the script, create the environment variables as:
 * GOOGLE_CONFIG_IOS = base64 of GoogleService-Info.plist
 * GOOGLE_MAPS_KEY = Google Maps Key from GCP
 * CODEPUSH_KEY = Key of Appcenter Codepush
+* CODACY_PROJECT_TOKEN = Key of Codacy to sync test
+* DYNATRACE_APP_ID = Daynatrace Application ID
+* DYNATRACE_BEACON_URL= Dynatrace Beacon URL
 
 Example of environment in AppCenter backoffice
 RN_<VAR_NAME>=value
@@ -99,4 +131,5 @@ Example of final .ENV file:
 ```
 npm run test
 npm run coverage
+npm run coverage:codacy //to send report to Codacy
 ```
