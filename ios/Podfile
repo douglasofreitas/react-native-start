@@ -68,6 +68,8 @@ target 'ReactNativeStart' do
 
   pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
 
+  pod 'react-native-dynatrace', :path => '../node_modules/@dynatrace/react-native-plugin'
+
   post_install do |installer|
       installer.pods_project.targets.each do |target|
           if target.name == "React"

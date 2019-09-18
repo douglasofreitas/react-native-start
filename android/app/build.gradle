@@ -150,6 +150,7 @@ android {
 }
 
 dependencies {
+    implementation project(':@dynatrace_react-native-plugin')
     implementation project(':react-native-device-info')
     implementation project(':react-native-video')
     implementation project(':@react-native-community_netinfo')
