@@ -8,6 +8,8 @@ import {
 import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
 import { CachedImage } from 'react-native-cached-images';
+import { getBuildNumber } from 'react-native-device-info';
+
 
 import I18n from '../../i18n';
 
@@ -20,6 +22,7 @@ export class Screen extends Component {
     this.state = {
       remoteConfig: {},
       storeData: '',
+      versionAppId: '',
       deviceLocale: I18n.currentLocale(),
     };
 
@@ -38,6 +41,10 @@ export class Screen extends Component {
         this.setState({ remoteConfig: data.val() });
       })
       .catch((error) => console.log(`Error processing config: ${error}`)); // eslint-disable-line no-console
+
+    getBuildNumber().then((buildNumber) => {
+      this.setState({ versionAppId: buildNumber });
+    });
   }
 
   componentDidMount() {
@@ -53,11 +60,13 @@ export class Screen extends Component {
       remoteConfig,
       storeData,
       deviceLocale,
+      versionAppId,
     } = this.state;
 
     return (
       <SafeAreaView forceInset={{ top: 'always' }}>
         <ScrollView style={{}}>
+          <Text>{`Version number ${versionAppId} `}</Text>
           <Text>{`Config: ${JSON.stringify(Config)} `}</Text>
           <Text>{`remoteConfig: ${JSON.stringify(remoteConfig)} `}</Text>
           <Text>{`storeData: ${JSON.stringify(storeData)} `}</Text>
