@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
 import { CachedImage } from 'react-native-cached-images';
 import { getBuildNumber } from 'react-native-device-info';
+import codePush from 'react-native-code-push';
 
 
 import I18n from '../../i18n';
@@ -23,6 +24,11 @@ export class Screen extends Component {
       remoteConfig: {},
       storeData: '',
       versionAppId: '',
+      codepush: {
+        label: '',
+        version: '',
+        description: '',
+      },
       deviceLocale: I18n.currentLocale(),
     };
 
@@ -32,6 +38,8 @@ export class Screen extends Component {
   componentWillMount() {
     const { services } = this.props;
     const { firebase } = services;
+
+    // Firebase: get remoteConfiguration
     firebase
       .config()
       .fetch()
@@ -42,8 +50,20 @@ export class Screen extends Component {
       })
       .catch((error) => console.log(`Error processing config: ${error}`)); // eslint-disable-line no-console
 
+    // Device Info
     getBuildNumber().then((buildNumber) => {
       this.setState({ versionAppId: buildNumber });
+    });
+
+    // Codepush info
+    codePush.getUpdateMetadata().then((metadata) => {
+      this.setState({
+        codepush: {
+          label: metadata.label,
+          version: metadata.appVersion,
+          description: metadata.description,
+        },
+      });
     });
   }
 
@@ -61,28 +81,42 @@ export class Screen extends Component {
       storeData,
       deviceLocale,
       versionAppId,
+      codepush,
     } = this.state;
 
     return (
       <SafeAreaView forceInset={{ top: 'always' }}>
         <ScrollView style={{}}>
-          <Text>{`Version number ${versionAppId} `}</Text>
-          <Text>{`Config: ${JSON.stringify(Config)} `}</Text>
-          <Text>{`remoteConfig: ${JSON.stringify(remoteConfig)} `}</Text>
-          <Text>{`storeData: ${JSON.stringify(storeData)} `}</Text>
-          <Text>Codepush installed </Text>
-          <Text>{`Default language ${deviceLocale} `}</Text>
-          <Text>{`Example translate (i18n): ${I18n.t('hi')} `}</Text>
+          <View style={{ marginTop: 20 }}>
+            <Text>{`Version number ${versionAppId} `}</Text>
+            <Text>{`Config: ${JSON.stringify(Config)} `}</Text>
+            <Text>{`storeData: ${JSON.stringify(storeData)} `}</Text>
+          </View>
 
-          <Text>Cache image:</Text>
-          <View style={{ height: 300, width: 300 }}>
-            <CachedImage style={{ flex: 1 }} source={{ uri: 'https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' }} />
+          <View style={{ marginTop: 20 }}>
+            <Text>Codepush: </Text>
+            <Text>{`Version: ${codepush.version} `}</Text>
+            <Text>{`Label: ${codepush.label} `}</Text>
+            <Text>{`Description: ${codepush.description} `}</Text>
+          </View>
+
+          <View style={{ marginTop: 20 }}>
+            <Text>{`Default language ${deviceLocale} `}</Text>
+            <Text>{`Example translate (i18n): ${I18n.t('hi')} `}</Text>
+          </View>
+
+          <View style={{ marginTop: 20 }}>
+            <Text>Cache image:</Text>
+            <View style={{ height: 300, width: 300 }}>
+              <CachedImage style={{ flex: 1 }} source={{ uri: 'https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' }} />
+            </View>
           </View>
 
           <View style={styles.modules}>
             <Text style={styles.modulesHeader}>
               The following Firebase modules are pre-installed:
             </Text>
+            <Text>{`Fireabse remoteConfig: ${JSON.stringify(remoteConfig)} `}</Text>
             {firebase.analytics.nativeModuleExists && (
               <Text style={styles.module}>analytics()</Text>
             )}
