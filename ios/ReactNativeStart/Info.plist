@@ -60,7 +60,7 @@
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
     <key>DTXApplicationID</key>
-    <string>__DYNATRACE_IOS_APP_ID__</string>
+    <string>__DYNATRACE_APP_ID__</string>
     <key>DTXAgentEnvironment</key>
     <string>__DYNATRACE_IOS_ENVIRONMENT__</string>
     <key>DTXClusterURL</key>

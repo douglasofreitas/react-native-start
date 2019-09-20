@@ -124,10 +124,10 @@ To use the script, create the environment variables as:
 * GOOGLE_MAPS_KEY = Google Maps Key from GCP
 * CODEPUSH_KEY = Key of Appcenter Codepush
 * CODACY_PROJECT_TOKEN = Key of Codacy to sync test
-* DYNATRACE_IOS_APP_ID = Get from Dynatrace account
+* DYNATRACE_APP_ID = Get from Dynatrace account
 * DYNATRACE_IOS_ENVIRONMENT = Get from Dynatrace account
 * DYNATRACE_IOS_CLUSTER_URL = Get from Dynatrace account
-* DYNATRACE_ANDROID_APP_ID = Get from Dynatrace account
+* DYNATRACE_APP_ID = Get from Dynatrace account
 * DYNATRACE_ANDROID_BEACON_URL = Get from Dynatrace account
 
 Example of environment in AppCenter backoffice
