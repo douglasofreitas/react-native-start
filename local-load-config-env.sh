@@ -8,6 +8,9 @@ cp $APPCENTER_SOURCE_DIRECTORY/../DATA/$ENV/google-services.json $APPCENTER_SOUR
 #Config Firebase iOS config files
 cp $APPCENTER_SOURCE_DIRECTORY/../DATA/$ENV/GoogleService-Info.plist $APPCENTER_SOURCE_DIRECTORY/ios/GoogleService-Info.plist
 
+#Config Dynatrace config file
+cp $APPCENTER_SOURCE_DIRECTORY/config/dynatrace.config $APPCENTER_SOURCE_DIRECTORY/dynatrace.config
+
 #Config Google Maps API
 GOOGLE_CONFIG_IOS_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/ReactNativeStart/AppDelegate.m
 sed -i '' -e "s/__GOOGLE_MAPS_KEY__/$GOOGLE_MAPS_KEY/" $GOOGLE_CONFIG_IOS_FILE

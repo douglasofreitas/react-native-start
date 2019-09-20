@@ -7,6 +7,9 @@ set | egrep -e $ENV_WHITELIST | sed 's/^RN_//g' > .env
 printf "\n.env created with contents:\n\n"
 cat .env
 
+#Config Dynatrace config file
+cp $APPCENTER_SOURCE_DIRECTORY/config/dynatrace.config $APPCENTER_SOURCE_DIRECTORY/dynatrace.config
+
 #Config Firebase Android config files
 GOOGLE_CONFIG_ANDROID_FILE=$APPCENTER_SOURCE_DIRECTORY/android/app/google-services.json
 if [ -e "$GOOGLE_CONFIG_ANDROID_FILE" ]
@@ -92,4 +95,5 @@ then
 fi
 
 #Dynatrace Instrumentation
-npm run instrumentDynatrace
+echo "Dynatrace instrument..."
+node node_modules/@dynatrace/react-native-plugin/scripts/instrument.js
