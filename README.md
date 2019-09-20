@@ -90,18 +90,25 @@ Create Google Maps Key in [GCP](https://console.cloud.google.com) and replace at
 * ios/ReactNativeStart/AppDelegate.m (GMSServices provideAPIKey)
 
 ```
-//ANDROID
+//---ANDROID---
 yarn install
 react-native link
 npx jetify 
+
+//Dynatrace Instrumentation
+npm run instrumentDynatrace
+
 npm run android
 
-//IOS
+//---IOS---
 yarn install
 react-native link
 cd ios && pod install
-npm run ios
 
+//Dynatrace Instrumentation
+npm run instrumentDynatrace
+
+npm run ios
 ```
 
 ## BUILD with AppCenter
@@ -117,8 +124,11 @@ To use the script, create the environment variables as:
 * GOOGLE_MAPS_KEY = Google Maps Key from GCP
 * CODEPUSH_KEY = Key of Appcenter Codepush
 * CODACY_PROJECT_TOKEN = Key of Codacy to sync test
-* DYNATRACE_APP_ID = Daynatrace Application ID
-* DYNATRACE_BEACON_URL= Dynatrace Beacon URL
+* DYNATRACE_IOS_APP_ID = Get from Dynatrace account
+* DYNATRACE_IOS_ENVIRONMENT = Get from Dynatrace account
+* DYNATRACE_IOS_CLUSTER_URL = Get from Dynatrace account
+* DYNATRACE_ANDROID_APP_ID = Get from Dynatrace account
+* DYNATRACE_ANDROID_BEACON_URL = Get from Dynatrace account
 
 Example of environment in AppCenter backoffice
 RN_<VAR_NAME>=value

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import PropTypes from 'prop-types';
+import { Dynatrace } from '@dynatrace/react-native-plugin';
 
 export class Screen extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export class Screen extends Component {
     const { services } = this.props;
     const { firebase } = services;
     firebase.analytics().setCurrentScreen('HOME');
+    Dynatrace.identifyUser('douglas');
     // firebase.analytics().setUserId('douglas');
   }
 

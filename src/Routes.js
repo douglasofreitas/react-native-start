@@ -11,6 +11,9 @@ import HomeScreen from './screens/Home';
 import ProfileScreen from './screens/Profile';
 import Profile2Screen from './screens/Profile2';
 import HealthScreen from './screens/Health';
+import VideoScreen from './screens/Video';
+import CameraScreen from './screens/Camera';
+import MapsScreen from './screens/Maps';
 
 import SideMenu from './components/sidemenu/SideMenu';
 import NavigationDrawer from './components/sidemenu/NavigationDrawer';
@@ -68,11 +71,56 @@ const stackNavigatorHealth = createStackNavigator({
   },
 });
 
+const stackNavigatorVideo = createStackNavigator({
+  Video1: {
+    screen: VideoScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Video Screen',
+      headerLeft: <NavigationDrawer navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#FF9800',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const stackNavigatorCamera = createStackNavigator({
+  Camera1: {
+    screen: CameraScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Camera Screen',
+      headerLeft: <NavigationDrawer navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#FF9800',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const stackNavigatorMaps = createStackNavigator({
+  Maps1: {
+    screen: MapsScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Maps Screen',
+      headerLeft: <NavigationDrawer navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#FF9800',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const drawerNavigator = createDrawerNavigator(
   {
     Home: { screen: stackNavigatorHome },
     Profile: { screen: stackNavigatorProfile },
     Health: { screen: stackNavigatorHealth },
+    Video: { screen: stackNavigatorVideo },
+    Camera: { screen: stackNavigatorCamera },
+    Maps: { screen: stackNavigatorMaps },
   }, {
     contentComponent: SideMenu,
     hideStatusBar: true,

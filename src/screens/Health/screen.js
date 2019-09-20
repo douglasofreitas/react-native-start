@@ -8,7 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
 import { CachedImage } from 'react-native-cached-images';
-import { getBuildNumber } from 'react-native-device-info';
+// import { getBuildNumber } from 'react-native-device-info';
 import codePush from 'react-native-code-push';
 
 
@@ -31,8 +31,6 @@ export class Screen extends Component {
       },
       deviceLocale: I18n.currentLocale(),
     };
-
-    this.renderVideo = this.renderVideo.bind(this);
   }
 
   componentWillMount() {
@@ -51,9 +49,11 @@ export class Screen extends Component {
       .catch((error) => console.log(`Error processing config: ${error}`)); // eslint-disable-line no-console
 
     // Device Info
+    /*
     getBuildNumber().then((buildNumber) => {
       this.setState({ versionAppId: buildNumber });
     });
+    */
 
     // Codepush info
     codePush.getUpdateMetadata().then((metadata) => {

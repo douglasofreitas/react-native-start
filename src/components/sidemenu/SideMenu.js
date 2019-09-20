@@ -12,21 +12,15 @@ import { navigate } from '../../navigationRef';
 const SideMenu = () => {
   const menuOptions = [
     {
-      mainHeading: 'Home',
+      id: '1',
+      mainHeading: 'Menu',
       subOptions: [
-        { secondaryHeading: 'Go to Home', navigationPath: 'Home' },
-      ],
-    },
-    {
-      mainHeading: 'Profile',
-      subOptions: [
-        { secondaryHeading: 'Go to Profile', navigationPath: 'Profile' },
-      ],
-    },
-    {
-      mainHeading: 'Health',
-      subOptions: [
-        { secondaryHeading: 'Go to Health', navigationPath: 'Health' },
+        { secondaryHeading: 'Home', navigationPath: 'Home', id: '1.1' },
+        { secondaryHeading: 'Profile', navigationPath: 'Profile', id: '1.2' },
+        { secondaryHeading: 'Video', navigationPath: 'Video', id: '1.3' },
+        { secondaryHeading: 'Camera', navigationPath: 'Camera', id: '1.4' },
+        { secondaryHeading: 'Maps', navigationPath: 'Maps', id: '1.5' },
+        { secondaryHeading: 'Health', navigationPath: 'Health', id: '1.6' },
       ],
     },
   ];
@@ -36,10 +30,10 @@ const SideMenu = () => {
       <ScrollView>
         <View>
           {menuOptions.map((option) => (
-            <View>
+            <View key={option.id}>
               <Text style={styles.mainHeading}>{option.mainHeading}</Text>
-              {option.subOptions.map((item, key) => (
-                <View style={styles.secondaryHeading} key={key}>
+              {option.subOptions.map((item) => (
+                <View style={styles.secondaryHeading} key={item.id}>
                   <Text onPress={() => { navigate(item.navigationPath); }}>
                     {item.secondaryHeading}
                   </Text>
