@@ -708,6 +708,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				965606E041319D1864D98AE3 /* [CP] Copy Pods Resources */,
+				4DFF1F3931E305013ADF2E9C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1191,6 +1192,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		4DFF1F3931E305013ADF2E9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReactNativeStart/Pods-ReactNativeStart-frameworks.sh",
+				"${PODS_ROOT}/Dynatrace/iOS/agent/Dynatrace.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dynatrace.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReactNativeStart/Pods-ReactNativeStart-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		68C8DDEF1FB1D75B5BB1B6BF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
