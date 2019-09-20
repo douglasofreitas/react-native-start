@@ -18,18 +18,22 @@ Use:
 * Hooks
 
 Libraries: 
+* @dynatrace/react-native-plugin
+* @react-native-community/async-storage
 * react-navigation
-* react-native-async-storage
 * react-native-config
 * react-native-firebase
 * react-native-code-push
+* react-native-device-info
 * react-native-i18n
 * react-native-cached-images
 * react-native-camera
+* react-native-video
 * react-native-webview
 * react-native-maps
 * react-native-elements
 * axios
+* jetifier
 * prop-types
 * jest-enzyme
 * eslint
@@ -39,9 +43,8 @@ Libraries:
 Pending samples:
 * upload files progress
 * get current position (navigation.geolocation)
+* use Design System
 
-Native Libraries:
-* Dynatrace
 
 ## Prepare Enviroment Variables
 
