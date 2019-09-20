@@ -28,9 +28,6 @@ export class Screen extends Component {
 }
 
 Screen.propTypes = {
-  navigation: PropTypes.shape({
-    pop: PropTypes.func.isRequired,
-  }).isRequired,
   services: PropTypes.shape({
     firebase: PropTypes.shape({
       analytics: PropTypes.func.isRequired,

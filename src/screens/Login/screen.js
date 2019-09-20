@@ -43,9 +43,6 @@ export class Screen extends Component {
 }
 
 Screen.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
   services: PropTypes.shape({
     signin: PropTypes.func.isRequired,
     clearErrorMessage: PropTypes.func.isRequired,

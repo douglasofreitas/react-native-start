@@ -2,6 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import renderer from 'react-test-renderer';
+import firebase from 'react-native-firebase';
 import { shallow } from 'enzyme';
 
 import Screen from './index';
@@ -11,6 +12,9 @@ describe('Screen: Profile', () => {
   const props = {
     navigation: {
       navigate: jest.fn(),
+    },
+    services: {
+      firebase,
     },
   };
 

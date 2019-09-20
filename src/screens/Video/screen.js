@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 // import { View, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
@@ -23,7 +24,6 @@ export class Screen extends Component {
     const { services } = this.props;
     const { firebase } = services;
     firebase.analytics().setCurrentScreen('VIDEO');
-    // firebase.analytics().setUserId('douglas');
   }
 
   /* VIDEO SAMPLE */
@@ -56,9 +56,6 @@ export class Screen extends Component {
 }
 
 Screen.propTypes = {
-  navigation: PropTypes.shape({
-    pop: PropTypes.func.isRequired,
-  }).isRequired,
   services: PropTypes.shape({
     firebase: PropTypes.shape({
       analytics: PropTypes.func.isRequired,
