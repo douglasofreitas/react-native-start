@@ -8,6 +8,7 @@ Boilerplate of react-native app with usefull libraries.
 
 Project with:
 
+Node: "10.16.3" (Dynatrace/react-native-plugin not suport 12 yet)
 React: "16.8.3"
 React Native: "0.59.9"
 
@@ -50,6 +51,14 @@ Pending samples:
 
 App Center build de .env file using script "appcenter-pre-build.sh"
 The ".env.sample" file is a sample of .env generate by APP Center and is used to run local.
+
+This version has Dynatrace Integration. If you don't need this, remove the module "@dynatrace/react-native-plugin". 
+
+```
+// Optional
+npm uninstall --save @dynatrace/react-native-plugin
+react-native unlink @dynatrace/react-native-plugin
+```
 
 Create the folder "DATA" next to the project folder:
 
