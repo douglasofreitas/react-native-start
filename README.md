@@ -8,9 +8,9 @@ Boilerplate of react-native app with usefull libraries.
 
 Project with:
 
-Node: "10.16.3" (Dynatrace/react-native-plugin not suport 12 yet)
-React: "16.8.3"
-React Native: "0.59.9"
+* Node: "10.16.3" (Dynatrace/react-native-plugin not suport 12 yet)
+* React: "16.8.3"
+* React Native: "0.59.9"
 
 To use demo version, use the API above to test login (Auth):
 https://github.com/douglasofreitas/node-jwt-authentication-api
@@ -50,12 +50,18 @@ Pending samples:
 ## Prepare Enviroment Variables
 
 App Center build de .env file using script "appcenter-pre-build.sh"
-The ".env.sample" file is a sample of .env generate by APP Center and is used to run local.
+The ".env.sample" file is a sample of ".env" generate by APP Center and is used to run local.
+Create the ".env" file and fill parameters.
+
+Create accounts:
+
+* Create the files on [Firebase console](https://console.firebase.google.com) and put the files in DATA folder
+* Create Google Maps Key in [GCP](https://console.cloud.google.com) and put de Key at .env file.
 
 This version has Dynatrace Integration. If you don't need this, remove the module "@dynatrace/react-native-plugin". 
 
 ```
-// Optional
+// Optional to remove Dynatrace
 npm uninstall --save @dynatrace/react-native-plugin
 react-native unlink @dynatrace/react-native-plugin
 ```
@@ -64,6 +70,10 @@ Create the folder "DATA" next to the project folder:
 
 ```
  - react-native-start (project folder)
+    - src
+    - android
+    - ios
+    - ...
  - DATA
     _ certificates
         - ios
@@ -77,51 +87,35 @@ Create the folder "DATA" next to the project folder:
         ...
 ```
 
-After prepare DATA folder, run code to prepare the project
+## Run app
 
+Install Dependences
+```
+yarn install
+cd ios && pod install
+```
+
+After prepare DATA folder, run code to prepare the project
 ```
 ./local-load-config-env.sh
+
+//Dynatrace Instrumentation
+npm run instrumentDynatrace
 ```
 
-Before commit your changes, run code below to reset configurations
+Finally, run the application:
+```
+npm run android
+npm run ios
+```
 
+
+Before commit your changes, run code below to reset Local configurations
 ```
 ./local-hide-config-env.sh
 ```
+Or commit only your changes
 
-## Run app
-
-Follow the steps to run APP.
-Create the files on [Firebase console](https://console.firebase.google.com):
-
-* android/app/google-services.json
-* ios/GoogleService-Info.plist.local
-
-Create Google Maps Key in [GCP](https://console.cloud.google.com) and replace at:
-* android/app/src/main/res/values/strings.xml (reactNativeCodePush_androidDeploymentKey)
-* ios/ReactNativeStart/AppDelegate.m (GMSServices provideAPIKey)
-
-```
-//---ANDROID---
-yarn install
-react-native link
-npx jetify 
-
-//Dynatrace Instrumentation
-npm run instrumentDynatrace
-
-npm run android
-
-//---IOS---
-yarn install
-react-native link
-cd ios && pod install
-
-//Dynatrace Instrumentation
-npm run instrumentDynatrace
-
-npm run ios
-```
 
 ## BUILD with AppCenter
 
@@ -139,7 +133,6 @@ To use the script, create the environment variables as:
 * DYNATRACE_APP_ID = Get from Dynatrace account
 * DYNATRACE_IOS_ENVIRONMENT = Get from Dynatrace account
 * DYNATRACE_IOS_CLUSTER_URL = Get from Dynatrace account
-* DYNATRACE_APP_ID = Get from Dynatrace account
 * DYNATRACE_ANDROID_BEACON_URL = Get from Dynatrace account
 
 Example of environment in AppCenter backoffice
@@ -153,5 +146,5 @@ Example of final .ENV file:
 ```
 npm run test
 npm run coverage
-npm run coverage:codacy //to send report to Codacy
+npm run coverage:codacy -- --token <TOKEN> //to send report to Codacy
 ```

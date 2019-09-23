@@ -4,7 +4,7 @@ buildscript {
 apply from: "../node_modules/@dynatrace/react-native-plugin/files/plugin.gradle", to: buildscript
     ext {
         buildToolsVersion = "28.0.3"
-        minSdkVersion = 23
+        minSdkVersion = 16
         compileSdkVersion = 28
         targetSdkVersion = 28
         supportLibVersion = "28.0.0"
