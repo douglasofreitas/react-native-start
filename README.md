@@ -148,3 +148,8 @@ npm run test
 npm run coverage
 npm run coverage:codacy -- --token <TOKEN> //to send report to Codacy
 ```
+
+## Rename Project to your GOAL
+
+Use the packege to rename your project name and bundle:
+https://www.npmjs.com/package/react-native-rename
